@@ -2,6 +2,7 @@
 #include <set>
 #include <stdlib.h>     /* srand, rand */
 #include <iostream> // std::cout 
+#include <map>
 
 int main() {
 //Task 3.2
@@ -44,6 +45,33 @@ int main() {
     std::cout << "Not included: \n";
     for (auto si : differenceSet) {
         std::cout << si << "; ";
+    }
+    std::cout << "\n";
+
+// Task 3.3
+    // A map allows to store pairs of values, which are then stored in a sorted order according to the key value.
+    // Furthermore it allows fast access to entries with key value.
+    // Downside: maps are made up of pairs, which cannot be updated.
+
+    // Create map with number:frequency
+    std::map<unsigned int,int> frequency;
+
+    // Iterate over includedSet from the previous task, which we know to be our key values, iterate over randomList, which we know to contain our frequency,
+    // add the values together into a pair, insert pair into our map.
+    for (auto si : includedSet) {
+        int freq = 0;
+        for (auto li : randomList) {
+            if (si == li) {
+                freq++;
+            }
+        }
+        frequency.insert(std::make_pair(si, freq));
+    }
+
+    // Console output
+    std::cout << "Number:Frequency \n";
+    for (auto mi : frequency) {
+        std::cout << mi.first << ":" << mi.second << "\n";
     }
     std::cout << "\n";
 
