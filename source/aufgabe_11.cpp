@@ -28,7 +28,28 @@ TEST_CASE ("filter alle vielfache von drei ", "[erase]") {
 REQUIRE(std::all_of(v.begin(), v.end(), is_multiple_of_3));
 }
 
+//task 3.13
+template<typename C, typename P>
+C filter(C const& c,P const& p){
+    C c1;
+	for(auto ci : c){
+		if(p(ci)) { 
+			c1.push_back(ci);
+		}
+	}
+	return c1;
+}
+
+bool is_even(int n) {
+    return n % 2 == 0;
+}
+
+TEST_CASE("is even test","[task 3.13]") {
+    std::vector<int> v{1,2,3,4,5,6};
+    std::vector<int> all_even = filter (v, is_even);
+	REQUIRE(all_of(all_even.begin(), all_even.end(), is_even));
+}
 
 int main(int argc, char* argv[]) {
-return Catch :: Session (). run(argc , argv );
+return Catch::Session().run(argc, argv);
 }
