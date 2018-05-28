@@ -29,7 +29,6 @@ REQUIRE(std::all_of(v.begin(), v.end(), is_multiple_of_3));
 }
 
 
-
 int main(int argc, char* argv[]) {
 return Catch :: Session (). run(argc , argv );
 }
