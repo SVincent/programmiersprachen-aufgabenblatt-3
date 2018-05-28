@@ -121,12 +121,13 @@ int main() {
     }
     */
 
-    //finding duplicate names only makes sense if we add new circles
+    //finding duplicate names, returning circle if already exists
     bool isincluded = false;
     for (auto si : circleSet) {
         if (si.getName() == newname) {
-           std::cout << "A circle under this name already exists";
+           std::cout << "A circle under this name already exists: \n";
            isincluded = true;
+           std::cout << si;
         }
     }
 
@@ -141,6 +142,6 @@ int main() {
     //copy the contents from randomList into vector v, starting at its beginning
     std::vector<unsigned int> v;
     std::copy(std::begin(randomList), std::end(randomList), std::begin(v));
-    
+
     return 0;
 }
