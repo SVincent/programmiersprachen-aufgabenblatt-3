@@ -94,7 +94,7 @@ int main() {
     
     std::cout << c_1 << std::endl;
     std::cout << c_2 << std::endl;
-    std::cout << c_2 << std::endl;
+    std::cout << c_3 << std::endl;
 
     //set of circles
     std::set<Circle> circleSet;
@@ -105,9 +105,12 @@ int main() {
     std::string newname;
     std::cout << "Enter name of new circle: ";
     std::cin >> newname;
-    /*
-    if(circleSet.find(newname) != circleSet.end()) {
+    //if spaces are allowed in name, it would be
+    //std::getline(std::cin, newname);
 
+
+    /* Because find() is c++ 17 I commented this out
+    if(circleSet.find(newname) != circleSet.end()) {
     }
     */
 
