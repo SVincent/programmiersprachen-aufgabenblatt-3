@@ -40,3 +40,8 @@ add_executable(aufgabe_6
   vec2.cpp
   color.cpp
   )
+
+# Build aufgabe_9
+add_executable(aufgabe_9
+  aufgabe_9.cpp
+  )
