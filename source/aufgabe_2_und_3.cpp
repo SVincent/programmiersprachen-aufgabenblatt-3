@@ -6,6 +6,10 @@
 #include "vec2.hpp"
 #include "circle.hpp"
 #include "color.hpp"
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 int main() {
 //Task 3.2
@@ -133,5 +137,10 @@ int main() {
         std::cout << c_4 << std::endl;
     }
 
+//Task 3.10
+    //copy the contents from randomList into vector v, starting at its beginning
+    std::vector<unsigned int> v;
+    std::copy(std::begin(randomList), std::end(randomList), std::begin(v));
+    
     return 0;
 }
