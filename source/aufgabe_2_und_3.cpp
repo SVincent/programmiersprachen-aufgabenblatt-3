@@ -3,6 +3,9 @@
 #include <stdlib.h>     /* srand, rand */
 #include <iostream> // std::cout 
 #include <map>
+#include "vec2.hpp"
+#include "circle.hpp"
+#include "color.hpp"
 
 int main() {
 //Task 3.2
@@ -74,6 +77,55 @@ int main() {
         std::cout << mi.first << ":" << mi.second << "\n";
     }
     std::cout << "\n";
+
+//Task 3.4
+    
+    Vec2 vecCen(300, 300);
+    Color col(0.0, 1.0, 0.0);
+    Circle c_1(250, col, vecCen, "circle one");
+
+    Vec2 vecCen2(800, 600);
+    Color col2(0.2, 0.8, 0.5);
+    Circle c_2(150, col2, vecCen2, "circle the second");
+
+    Vec2 vecCen3(400, 700);
+    Color col3(1.0, 1.0, 0.1);
+    Circle c_3(200, col3, vecCen3, "circle 3");
+    
+    std::cout << c_1 << std::endl;
+    std::cout << c_2 << std::endl;
+    std::cout << c_2 << std::endl;
+
+    //set of circles
+    std::set<Circle> circleSet;
+    circleSet.insert(c_1);
+    circleSet.insert(c_2);
+    circleSet.insert(c_3);
+
+    std::string newname;
+    std::cout << "Enter name of new circle: ";
+    std::cin >> newname;
+    /*
+    if(circleSet.find(newname) != circleSet.end()) {
+
+    }
+    */
+
+    //finding duplicate names only makes sense if we add new circles
+    bool isincluded = false;
+    for (auto si : circleSet) {
+        if (si.getName() == newname) {
+           std::cout << "A circle under this name already exists";
+           isincluded = true;
+        }
+    }
+
+    Circle c_4(150, col, vecCen);
+    if (!isincluded) {
+        c_4.setName(newname);
+        circleSet.insert(c_4);
+        std::cout << c_4 << std::endl;
+    }
 
     return 0;
 }

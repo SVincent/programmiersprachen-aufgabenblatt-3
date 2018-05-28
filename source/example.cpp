@@ -1,30 +1,38 @@
 #include "window.hpp"
-#include <GLFW/glfw3.h>
+//#include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
 #include "vec2.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include <iostream>
 
 Vec2 vecMax(100, 100);
 Vec2 vecMin(220, 200);
 Vec2 vecCen(300, 300);
 Rectangle rect(vecMax, vecMin);
 Color col(0.0, 1.0, 0.0);
-Circle circ(50., col, vecCen);
+Circle circ(50., col, vecCen, "barbara");
 
 int main(int argc, char* argv[])
 {
+  circ.print();
+
+  std::cout << circ << std::endl;
+  std::cout << circ;
+  /*
   Window win{std::make_pair(800,800)};
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }
+  
 
     rect.draw(win, col);
     circ.draw(win);
-    /*
+
+    
     Vec2 mousePosition = win.mouse_position();
     if (rect.is_inside(mousePosition)){
       rect.setColor(0.0, 0.0, 1.0);
@@ -40,7 +48,7 @@ int main(int argc, char* argv[])
       circ.setColor(col);
     }
     */
-
+   /*
     bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
     auto t = win.get_time();
@@ -76,7 +84,8 @@ int main(int argc, char* argv[])
     win.draw_text(10, 5, 35.0f, text);
 
     win.update();
-  }
+    
+  } */
 
   return 0;
 }
