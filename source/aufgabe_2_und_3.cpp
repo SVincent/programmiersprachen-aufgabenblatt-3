@@ -109,8 +109,11 @@ int main() {
     //std::getline(std::cin, newname);
 
 
-    /* Because find() is c++ 17 I commented this out
+    /* find() doesn't work? maybe not in c++14 or c++11?
+    bool isincluded = false;
     if(circleSet.find(newname) != circleSet.end()) {
+        std::cout << "A circle under this name already exists";
+           isincluded = true;
     }
     */
 

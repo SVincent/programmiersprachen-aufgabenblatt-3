@@ -72,11 +72,12 @@ void Circle::setName(std::string const& nam) {
     name_ = nam;
 }
 
-void Circle::print() const {
-    std::cout << "name: " << name_ <<"\n";
-    std::cout << "- position: X:" << center_.x_ << " Y:" << center_.y_ << "\n";
-    std::cout << "- radius:" << radius_ << "\n";
-    std::cout << "- colour: R:" << colour_.r_ << " G:" << colour_.g_ << " B:" << colour_.b_ << "\n";
+std::ostream& Circle::print(std::ostream& os) const {
+    os << "name: " << name_ <<"\n";
+    os << "- position: X:" << center_.x_ << " Y:" << center_.y_ << "\n";
+    os << "- radius:" << radius_ << "\n";
+    os << "- colour: R:" << colour_.r_ << " G:" << colour_.g_ << " B:" << colour_.b_ << "\n";
+    return os;
 }
 
 bool Circle::is_inside(Vec2 const& vec) {
@@ -95,10 +96,10 @@ bool Circle::is_inside(Vec2 const& vec) {
 
 //Task 3.4
 std::ostream& operator<<(std::ostream& os, Circle const& c_1) {
-    c_1.print();
-    return os;
+    return c_1.print(os);
 }
 
+//Task 3.6
 bool operator<(Circle const& c_1, Circle const& c_2) {
     return c_1.getRadius()< c_2.getRadius();
 }

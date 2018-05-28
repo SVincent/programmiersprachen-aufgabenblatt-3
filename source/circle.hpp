@@ -30,7 +30,7 @@ public:
     //methods
     float circumference() const;
     bool is_inside(Vec2 const& vec);
-	void print() const;
+	std::ostream& print(std::ostream& os) const;
 
 	//if I put the operator within the class, the operator implicitly receives one additional parameter? 
 	//do operators need to be defined in global scope?
@@ -44,12 +44,12 @@ private:
 	std::string name_;
 };
 
-//Tasks 3.3
+//Task 3.3
 
 	//operators
     std::ostream& operator<<(std::ostream& os, Circle const& c_1);
 
-	//these are needed to fix error message? did we need to add these operators in the previous worksheet?
+//Task 3.6
 	bool operator<(Circle const& c1, Circle const& c2);
 	bool operator>(Circle const& c1, Circle const& c2);
 	bool operator==(Circle const& c1, Circle const& c2);

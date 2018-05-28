@@ -16,7 +16,6 @@ Circle circ(50., col, vecCen, "barbara");
 
 int main(int argc, char* argv[])
 {
-  circ.print();
 
   std::cout << circ << std::endl;
   std::cout << circ;
