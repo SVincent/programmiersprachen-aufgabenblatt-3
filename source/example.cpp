@@ -7,6 +7,27 @@
 #include "circle.hpp"
 #include <iostream>
 
+/* add back into makefilelists:
+# Build example
+add_executable(example
+  window.cpp
+  glew.c
+  example.cpp
+  vec2.cpp
+  mat2.cpp
+  circle.cpp
+  color.cpp
+  rectangle.cpp
+  )
+target_link_libraries(example
+  glfw
+  ${GLFW_LIBRARIES}
+  nanovg
+  ${OPENGL_LIBRARIES}
+  )
+add_dependencies(example glfw nanovg ${COPY_BINARY})
+*/
+
 Vec2 vecMax(100, 100);
 Vec2 vecMin(220, 200);
 Vec2 vecCen(300, 300);
